@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesforce Prompt Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Salesforce Prompt Generator</h1>
+        <form id="promptForm">
+            <label for="devType">Select Salesforce Development Type:</label>
+            <select id="devType">
+                <option value="Apex">Apex</option>
+                <option value="LWC">LWC (Lightning Web Components)</option>
+                <option value="VF">Visualforce Pages</option>
+            </select>
+
+            <label for="customFields">Number of Custom Fields:</label>
+            <input type="number" id="customFields" min="1" required>
+
+            <div id="customFieldsInputs"></div>
+
+            <label for="customLogic">Enter Custom Logic:</label>
+            <textarea id="customLogic" rows="4" cols="50" required></textarea>
+
+            <button type="submit">Generate Prompt</button>
+        </form>
+
+        <div id="promptResult"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
