@@ -3,19 +3,14 @@ document.getElementById('promptForm').addEventListener('submit', function (event
 
     // Get user inputs
     var devType = document.getElementById('devType').value;
+    var customObject = document.getElementById('customObject').value;
     var numCustomFields = parseInt(document.getElementById('customFields').value);
     var customLogic = document.getElementById('customLogic').value;
 
     // Generate prompt
-    var prompt = `You selected ${devType}. `;
-    prompt += `Create ${numCustomFields} custom field${numCustomFields > 1 ? 's' : ''} `;
-    prompt += `with the following names and types: `;
-
-    var customFieldsInputs = document.querySelectorAll('#customFieldsInputs input');
-    customFieldsInputs.forEach(function (input) {
-        prompt += `${input.value}, `;
-    });
-
+    var prompt = `You selected ${devType} development. `;
+    prompt += `Working on ${customObject}, `;
+    prompt += `create ${numCustomFields} custom field${numCustomFields > 1 ? 's' : ''} `;
     prompt += `and implement the following custom logic: "${customLogic}".`;
 
     // Display prompt
