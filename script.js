@@ -2,15 +2,15 @@ document.getElementById('promptForm').addEventListener('submit', function (event
     event.preventDefault();
 
     // Get user inputs
-    var devType = document.getElementById('devType').value;
-    var customObject = document.getElementById('customObject').value;
-    var numCustomFields = parseInt(document.getElementById('customFields').value);
+    var devType = document.getElementById('devType').value || "None";
+    var customObject = document.getElementById('customObject').value || "None";
+    var numCustomFields = parseInt(document.getElementById('customFields').value) || 0;
     var customFields = [];
-    var customLogic = document.getElementById('customLogic').value;
+    var customLogic = document.getElementById('customLogic').value || "None";
 
     // Get custom field names
     for (var i = 0; i < numCustomFields; i++) {
-        var fieldName = document.getElementById('customField' + i).value;
+        var fieldName = document.getElementById('customField' + i).value || "None";
         customFields.push(fieldName);
     }
 
@@ -25,7 +25,7 @@ document.getElementById('promptForm').addEventListener('submit', function (event
 });
 
 document.getElementById('customFields').addEventListener('input', function () {
-    var numCustomFields = parseInt(this.value);
+    var numCustomFields = parseInt(this.value) || 0;
     var customFieldsInputs = document.getElementById('customFieldsInputs');
     customFieldsInputs.innerHTML = '';
 
