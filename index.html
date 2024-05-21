@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
+    <meta charset="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salesforce Prompt Generator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,27 +16,58 @@
 
     <div class="container">
         <form id="promptForm">
-            <label for="devType">Select Salesforce Development Type:</label>
-            <select id="devType">
-                <option value="Apex Class">Apex Class</option>
-                <option value="Test Class">Test Class</option>
-                <option value="HTML file in LWC">HTML file in LWC (Lightning Web Components)</option>
-                <option value="CSS file in LWC">CSS file in LWC (Lightning Web Components)</option>
-                <option value="Javascript file in LWC">Javascript file in LWC (Lightning Web Components)</option>
-                <option value="VF Pages">VF Pages</option>
-                <option value="Triggers">Triggers</option>
+            <label for="workType">Are you working in Salesforce Development or Testing?</label>
+            <select id="workType">
+                <option value="">Select...</option>
+                <option value="Development">Salesforce Development</option>
+                <option value="Testing">Testing</option>
             </select>
 
-            <label for="customObject">Enter Custom Object Name:</label>
-            <input type="text" id="customObject">
+            <div id="developmentFields" style="display: none;">
+                <label for="devType">Select Salesforce Development Type:</label>
+                <select id="devType">
+                    <option value="">Select...</option>
+                    <option value="Apex Class">Apex Class</option>
+                    <option value="Function">Function</option>
+                    <option value="Test Class">Test Class</option>
+                    <option value="HTML file in LWC">HTML file in LWC (Lightning Web Components)</option>
+                    <option value="CSS file in LWC">CSS file in LWC (Lightning Web Components)</option>
+                    <option value="Javascript file in LWC">Javascript file in LWC (Lightning Web Components)</option>
+                    <option value="VF Pages">VF Pages</option>
+                    <option value="Page Block Section">Page Block Section</option>
+                    <option value="Output Pannel">Output Pannel</option>
+                    <option value="Triggers">Triggers</option>
+                </select>
 
-            <label for="customFields">Number of Custom Fields:</label>
-            <input type="number" id="customFields" min="0">
+                <label for="customObject">Enter Custom Object Name:</label>
+                <input type="text" id="customObject">
 
-            <div id="customFieldsInputs"></div>
+                <label for="customFields">Number of Custom Fields:</label>
+                <input type="number" id="customFields" min="0">
 
-            <label for="customLogic">Enter Custom Logic:</label>
-            <textarea id="customLogic" rows="4" cols="50"></textarea>
+                <div id="customFieldsInputs"></div>
+
+                <label for="customLogic">Enter Custom Logic:</label>
+                <textarea id="customLogic" rows="4" cols="50"></textarea>
+            </div>
+
+            <div id="testingFields" style="display: none;">
+                <label for="testingType">What do you want a prompt for?</label>
+                <select id="testingType">
+                    <option value="">Select...</option>
+                    <option value="Step Definition">Step Definition</option>
+                    <option value="Java Function">Java Function</option>
+                    <option value="x-path">x-path</option>
+                </select>
+
+                <div id="testingNameSection" style="display: none;">
+                    <label for="testingName">Enter the name:</label>
+                    <input type="text" id="testingName">
+                </div>
+
+                <label for="testingDetails">Explain more about the option you selected above:</label>
+                <textarea id="testingDetails" rows="4" cols="50"></textarea>
+            </div>
 
             <button type="submit">Generate Prompt</button>
         </form>
